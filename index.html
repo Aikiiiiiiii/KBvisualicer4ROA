@@ -48,7 +48,8 @@ div.datadoc {
     <canvas id="myCanvas" width="960" height="540" style="border:2px solid #d3d3d3;" fill="#000000;">
     Your browser does not support the HTML canvas tag.</canvas>
   </div>
-  
+  <canvas id="myCanvas" width="600" height="400"></canvas>
+<button id="fullscreenBtn">Pantalla completa</button>
  <div class="section">
    <b>Stage Inputs:</b>
  </div>
@@ -951,6 +952,21 @@ function updateAttack() {
     
     
   }  
+}
+
+	  const canvas = document.getElementById('myCanvas');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+fullscreenBtn.addEventListener('click', () => {
+  if (canvas.requestFullscreen) {
+    canvas.requestFullscreen();
+  } else if (canvas.mozRequestFullScreen) { // Firefox
+    canvas.mozRequestFullScreen();
+  } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari y Opera
+    canvas.webkitRequestFullscreen();
+  } else if (canvas.msRequestFullscreen) { // IE/Edge
+    canvas.msRequestFullscreen();
+  }
 }
 
 function updateList() {
